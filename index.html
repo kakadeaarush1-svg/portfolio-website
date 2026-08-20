@@ -17,15 +17,13 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: #fff;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+        padding: 40px 20px;
     }
 
     .container {
         text-align: center;
-        max-width: 600px;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     h1 {
@@ -43,7 +41,7 @@
 
     .status {
         font-size: 1.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         padding: 1rem 2rem;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 50px;
@@ -55,6 +53,7 @@
         gap: 1.5rem;
         justify-content: center;
         flex-wrap: wrap;
+        margin-bottom: 3rem;
     }
 
     .links a {
@@ -73,18 +72,70 @@
         transform: translateY(-2px);
     }
 
+    /* ── Calendar Section ── */
+    .calendar-section {
+        margin-top: 2rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 30px 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .calendar-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .calendar-section p.cal-sub {
+        font-size: 0.95rem;
+        opacity: 0.75;
+        margin-bottom: 20px;
+    }
+
+    .calendar-wrapper {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .calendar-wrapper iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+        display: block;
+    }
+
+    .cal-placeholder {
+        background: rgba(255,255,255,0.07);
+        border: 2px dashed rgba(255,255,255,0.35);
+        border-radius: 14px;
+        padding: 50px 20px;
+        font-size: 1rem;
+        line-height: 1.8;
+        opacity: 0.85;
+    }
+
+    .cal-placeholder code {
+        background: rgba(0,0,0,0.3);
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+    }
+
+    .cal-placeholder a {
+        color: #c8d8ff;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
-        h1 {
-            font-size: 2rem;
-        }
-
-        .bio {
-            font-size: 1rem;
-        }
-
-        .status {
-            font-size: 1.2rem;
-        }
+        h1 { font-size: 2rem; }
+        .bio { font-size: 1rem; }
+        .status { font-size: 1.2rem; }
+        .calendar-wrapper iframe { height: 380px; }
     }
     </style>
 </head>
@@ -100,6 +151,41 @@
             <a href="https://github.com/kakadeaarush1-svg" target="_blank">GitHub</a>
             <a href="mailto:kakadeaarush1@gmail.com">Contact Me</a>
         </div>
+
+        <!-- ── GOOGLE CALENDAR DASHBOARD ── -->
+        <div class="calendar-section">
+            <h2>📅 My Schedule</h2>
+            <p class="cal-sub">Live calendar — study sessions, deadlines & events</p>
+            <div class="calendar-wrapper" id="cal-wrapper">
+                <!--
+                    INSTRUCTIONS TO ACTIVATE:
+                    1. Go to Google Calendar → Settings (⚙️) → your calendar → "Integrate calendar"
+                    2. Copy the "Public URL to this calendar" embed src (looks like:
+                       https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40gmail.com&ctz=Asia%2FKolkata)
+                    3. Replace the src in the <iframe> below with your copied URL.
+                    4. Delete the <div class="cal-placeholder"> block below.
+                    5. Uncomment the <iframe> by removing the HTML comment markers.
+                -->
+
+                <!-- PASTE YOUR EMBED URL BELOW AND REMOVE THESE COMMENT TAGS:
+                <iframe
+                    src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID%40gmail.com&ctz=Asia%2FKolkata&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&mode=WEEK"
+                    frameborder="0"
+                    scrolling="no"
+                    title="Aarush's Google Calendar">
+                </iframe>
+                -->
+
+                <div class="cal-placeholder">
+                    <strong>🔗 Connect your Google Calendar in 3 steps:</strong><br><br>
+                    1️⃣ Open <a href="https://calendar.google.com/calendar/r/settings" target="_blank">Google Calendar → Settings</a><br>
+                    2️⃣ Select your calendar → <strong>Integrate calendar</strong> → make it <strong>Public</strong><br>
+                    3️⃣ Copy the embed <code>&lt;iframe&gt;</code> src URL and paste it into <code>index.html</code> (instructions in the code comments above)
+                </div>
+            </div>
+        </div>
+        <!-- ── END CALENDAR ── -->
+
     </div>
 </body>
 </html>
